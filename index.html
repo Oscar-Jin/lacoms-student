@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LACOMS-student Dashboard</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="dashboard.css" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+  <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#563d7c">
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <!-- <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LACOMS-student</a> -->
+    <a class="navbar-brand col-sm-3 mr-0" href="#">LACOMS-student</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="https://oscar-jin.github.io/lacoms-login/">ログアウト</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="home"></span>
+                ダッシュボード <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                宿題
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                プラン
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                講師
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                レポート
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                授業内容
+              </a>
+            </li>
+          </ul>
+
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Saved documents</span>
+            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+              <span data-feather="plus-circle"></span>
+            </a>
+          </h6>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                GHI音声ファイル
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                発音矯正シート
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                リスニングの注意点
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file-text"></span>
+                生徒規約
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <div class="">
+            <h1 class="h2">成績推移</h1>
+            <p>順調に進んでいますね。この調子で頑張りましょう。</p>
+          </div>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">シェア</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">書き出す</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar"></span>
+              今月の時間割
+            </button>
+          </div>
+        </div>
+
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+        <div class="">
+          <h2>授業予定</h2>
+          <p>今月の未消化は0コマです。</p>
+
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-md">
+            <thead class="thead-light">
+              <tr>
+                <th>予約</th>
+                <th>日付</th>
+                <th>クラス</th>
+                <th>担当講師</th>
+                <th>出席状況</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>2/3(月)</td>
+                <td>L5</td>
+                <td>ジャスティン</td>
+                <td>出席</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>2/7(金)</td>
+                <td>E</td>
+                <td>神崎</td>
+                <td>出席</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>2/10(月)</td>
+                <td>L5</td>
+                <td>ジャスティン</td>
+                <td>遅刻</td>
+              </tr>
+              <tr>
+                <td>004</td>
+                <td>2/14(金)</td>
+                <td>E</td>
+                <td>呉</td>
+                <td>出席</td>
+              </tr>
+              <tr class="table-success">
+                <td>005</td>
+                <td>2/17(月)</td>
+                <td>L5</td>
+                <td>向井</td>
+                <td>(本日出席予定)</td>
+              </tr>
+              <tr>
+                <td>006</td>
+                <td>2/21(金)</td>
+                <td>E</td>
+                <td>神崎</td>
+                <td>--</td>
+              </tr>
+              <tr>
+                <td>007</td>
+                <td>2/24(月)</td>
+                <td>L5</td>
+                <td>向井</td>
+                <td>--</td>
+              </tr>
+              <tr>
+                <td>008</td>
+                <td>2/28(金)</td>
+                <td>E</td>
+                <td>高嶋</td>
+                <td>--</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')
+  </script>
+  <script src="bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>
